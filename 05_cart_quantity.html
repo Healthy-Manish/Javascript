@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>cart quantity</title>
+    <style>
+    
+      
+    </style>
+</head>
+<body>
+    <button onclick="
+        console.log(`Cart Quantity: ${cartQuantity}`)
+        ">
+        Show Qunatity</button>
+
+    <button onclick="
+        cartQuantity = cartQuantity+1;
+        console.log(`Cart Quantity: ${cartQuantity}`)
+    ">
+    Add to Cart</button>
+
+    <button onclick="
+        cartQuantity = cartQuantity+2;
+        console.log(`Cart Quantity: ${cartQuantity}`);
+
+    ">
+    +2</button>
+    <button
+    onclick="
+          cartQuantity = cartQuantity+3;
+        console.log(`Cart Quantity: ${cartQuantity}`);
+        ">
+        +3</button>
+    <button
+    onclick="
+    cartQuantity = 0;
+    console.log(`Cart quantity was reset`);
+    console.log(`Cart Quantity: ${cartQuantity}`);
+    ">
+    Reset Cart</button>
+<script>
+    let cartQuantity = 0;
+
+    // const create a variable that can't be changed later, hence it is immutable
+    const variable2 = 6;
+    // variable2 = 5;    --------> this will give error
+
+    // wr can also use 'var' to create variable but it still hae some issues
+    console.log(typeof variable2)
+</script>
+</body>
+</html>
+
