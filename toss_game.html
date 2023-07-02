@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toss</title>
+</head>
+<body>
+    <p>Rules are simple, if both pridiction are same then you win <br>else computer will</p>
+    <button onclick="toss('Heads')">Head</button>
+    <button onclick="toss('Tails')">Tail</button>
+    <button onclick="
+      score.wins = 0;
+      score.loss = 0;
+    localStorage.removeItem('score')">Restart</button>
+</body>
+    <script>
+        let score = JSON.parse(localStorage.getItem('score'))||
+        {
+            wins: 0,
+            loss: 0
+        }
+
+        function toss(user_input){
+            let computerMove  = '';
+            const random = Math.random();
+            if(0<=random<1/2){
+                    computerMove = 'Heads';
+            }else{
+                computerMove = 'Tails';
+            }
+
+            if(computerMove === user_input){
+                score.wins+=1;
+                
+            }
+            else if (computerMove !== user_input){
+                score.loss+=1;
+            }
+            localStorage.setItem('score',JSON.stringify(score));
+
+            alert(`You choose ${user_input} computer choose ${computerMove}
+wins: ${score.wins} losses: ${score.loss}`);
+        }
+    </script>
+</html>
