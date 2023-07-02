@@ -26,7 +26,8 @@
     console.log(product.name);
     product.newProperty = true;
     console.log(product.newProperty);
-*/
+
+
     const product2 = {
         name: 'shirt',
         // nested objects
@@ -51,6 +52,43 @@
     console.log(JSON.parse(jsonstring));
 
     //local storage ---->another build-in object
+*/
+
+    console.log('Hello'.length);
+    console.log('hello'.toUpperCase());
+    const object1 = {
+        message: 'hello'
+
+    };
+
+    object1.message = 'good job!';
+    console.log(object1);
+    const object2 = object1;
+    const object3 = {
+        message: 'good job!'
+    }
+    console.log(object2);
+    console.log(object1 === object2);// this has reference of object1 so it will give truthy 
+    console.log(object1 === object3);// here we have created new object so it will give falsy
+
+    // destructuring shortcut
+    const object4 = {
+        message: 'good job!',
+        price: 799
+    }
+    const {message, price} = object4;
+    console.log(message);
+    console.log(price);
+     const object5 = {
+        // message: message
+        message ,//this shortcut works same as above
+        method(){
+            console.log('method works');
+        }
+     };
+     console.log(object5)
+     object5.method();
+
 </script>
 </body>
 </html>
