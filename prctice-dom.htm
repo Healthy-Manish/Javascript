@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>head-tail</title>
+</head>
+<body>
+    <button onclick="inputv('heads');">Heads</button>
+    <button onclick="inputv('tails')" >Tails</button>
+    <p  class="js-head"></p>
+    <script>
+     
+        function inputv(player){
+           if(player === 'heads'){
+            document.querySelector('.js-head')
+            .innerHTML = 'you picked heads';
+           }
+           else{
+            document.querySelector('.js-head')
+            .innerHTML = 'you picked tails';
+            
+           }
+        }
+    </script>
+</body>
+</html>

@@ -8,6 +8,11 @@
     <title>Amazon shipping Calculator</title>
 </head>
 <body>
+    <p>You Tube Subscribe button</p>
+    <button onclick="subscribe()
+    "; class="js-subscribe-button">
+    Subscribe
+    </button>
     <p>Amazon Shipping Calculator</p>
     <input class="js-input" placeholder="Cost of product"
         onkeydown="
@@ -18,6 +23,15 @@
     <p class="js-total-cost"></p>
 
     <script>
+           function subscribe(){
+        const buttonElement = document.querySelector('.js-subscribe-button')
+        if(buttonElement.innerText === 'Subscribe'){
+            buttonElement.innerHTML = 'Subscribed';
+        }else{
+            buttonElement.innerHTML = 'Subscribe'
+        }
+   
+    }
         function handleKeyDown(){
             // console.log(event.key);
             if(event.key == 'Enter'){
