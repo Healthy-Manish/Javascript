@@ -13,83 +13,96 @@
     /*
     //Object let us group multiple values together  and let us use multiple values together
 
-        const product = {
-            name: 'sockes',
-            price: '1092'
-    };
+  */
+ /*
+ const product = {
+    name: 'socks',
+    price: 1090
+ }
+ console.log(product);
 
-    console.log(product);
-    console.log(product.name);
-    console.log(product.price);
+ console.log(typeof product);
+ console.log(product.name);
+ console.log(product.price);
 
-    product.name = 'cotton socks';
-    console.log(product.name);
-    product.newProperty = true;
-    console.log(product.newProperty);
+ product.name = 'cotton socks';
+ console.log(product);
 
+ product.newProperty = true;
+ console.log(product);
 
-    const product2 = {
-        name: 'shirt',
-        // nested objects
-        rating:{
-            stars: 4.5,
-            count: 87
-        },
-        fun: function function1(){
-            console.log('function inside object');
-        }
-    };
-    console.log(product2.name);
-    console.log(product2['name']);
-
-    console.log(product2.rating.count);
-    product2.fun();
-
-    //JSON-->build in objects in js
-   console.log( JSON.stringify(product2));
+ delete product.newProperty;
+ console.log(product);,
  
-    const jsonstring = JSON.stringify(product2);
-    console.log(JSON.parse(jsonstring));
-
-    //local storage ---->another build-in object
-*/
-
-    console.log('Hello'.length);
-    console.log('hello'.toUpperCase());
-    const object1 = {
-        message: 'hello'
-
-    };
-
-    object1.message = 'good job!';
-    console.log(object1);
-    const object2 = object1;
-    const object3 = {
-        message: 'good job!'
+*/const product2 = {
+    name: 'shirt',
+    ['delivery-time']: '1 day',
+    rating: {
+        stars: 4.5,
+        count: 87
+    },
+    fun: function function1(){
+        console.log('function inside object');
     }
-    console.log(object2);
-    console.log(object1 === object2);// this has reference of object1 so it will give truthy 
-    console.log(object1 === object3);// here we have created new object so it will give falsy
+};
+console.log(product2);
+console.log(product2.name);
+console.log(product2['name']);
+console.log(product2['delivery-time']);
+console.log(product2.rating);
+product2.fun();
 
-    // destructuring shortcut
-    const object4 = {
-        message: 'good job!',
-        price: 799
+//JSON -->Javascript Object Notation
+
+//JSON.stringify is use to convert javascript code to JSON
+
+// console.log( JSON.stringify(product2));
+//JSON.parse() is use to convert JSON back to javascript code
+// const jsonstring =  JSON.stringify(product2);
+// console.log(JSON.parse( jsonstring));
+
+
+console.log('hello'.length);
+console.log('hello'.toUpperCase());
+
+const object1 = {
+    message:'hello'
+};
+const object2 = object1;
+object2.message = 'Good job!'
+console.log(object2);
+console.log(object1.message);
+
+const object3 = {
+    message:'Good job!'
+};
+console.log(object3===object1);
+console.log(object1===object2);
+
+
+const object4 = {
+    message:'Good job!',
+    price: 799
+};
+// const message = object4.message;
+
+//destructuring in js
+const{message,price} = object4;
+console.log(message);
+console.log(price);
+
+const object5= {
+    message: message,
+    // method: function function1(){
+    //     console.log('method');
+    // }
+    method(){
+        console.log('method of code');
     }
-    const {message, price} = object4;
-    console.log(message);
-    console.log(price);
-     const object5 = {
-        // message: message
-        message ,//this shortcut works same as above
-        method(){
-            console.log('method works');
-        }
-     };
-     console.log(object5)
-     object5.method();
+};
+object5.method();
 
-</script>
-</body>
-</html>
+ </script>
+ </body>
+ </html>
 
