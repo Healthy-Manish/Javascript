@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart-quantity</title>
+</head>
+<body>
+    <button onclick="displayCartQuantity();">Show Qunatity</button>
+    <button  onclick="updateCartQunatity(1)">Add to Cart</button>
+    <button onclick="updateCartQunatity(2)">+2</button>
+    <button  onclick="updateCartQunatity(3)">+3</button>
+    <button onclick="updateCartQunatity(4)">+4</button>
+    <button onclick="updateCartQunatity(5)">+5</button>
+    <button  onclick="updateCartQunatity(-1)">Remove from cart</button>
+    <button  onclick="updateCartQunatity(-2)">-2</button>
+    <button  onclick="updateCartQunatity(-3)">-3</button>
+    <p class="showTotal"></p>
+<script>
+    let cartQuantity = 0;
+    displayCartQuantity();
+    function updateCartQunatity(change){
+        if( cartQuantity+change>10){
+            alert('The cart is full');
+            return;
+        }
+        if(cartQuantity+change<0){
+            alert('Not enough items in the cart');
+            return;
+        }
+        cartQuantity+=change;
+        // localStorage.setItem('cartQuantity',JSON.stringify(cartQuantity))
+        displayCartQuantity();
+    }
+    // cartQuantity = localStorage.getItem('cartQuantity');
+
+    function displayCartQuantity(){
+        document.querySelector('.showTotal').innerHTML =
+        `Cart quantity: ${cartQuantity}`;
+    }
+
+</script>
+
+</body>
+</html>

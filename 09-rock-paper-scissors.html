@@ -10,9 +10,10 @@
 <body>
     <p>Rock Paper Scissors</p>
     <button onclick="
-    playGame('rock');
-    ">Rock</button>
+      playGame('rock')
 
+      // alert(`You picked rock. Computer picked ${computerMove}. ${result}`);
+    ">Rock</button>
     <button onclick="
        playGame('paper');
     ">
@@ -24,50 +25,51 @@
       playGame('scissors');
  
     ">Scissors</button>
+
     <p class="js-result"></p>
     <p class="js-move"></p>
     <p class="js-score"></p>
 
-    <button onclick="
-      score.wins = 0;
-      score.losses = 0;
-      score.ties = 0;
-      localStorage.removeItem('score');
-      updateScore();">Reset Score</button>
 
+    <button onclick="
+        score.wins = 0;
+        score.losses= 0;
+        score.ties = 0;
+        localStorage.removeItem('score');
+        updateScoreElement();
+        ">Reset Score</button>
 <script>
     
-  let score =JSON.parse(localStorage.getItem('score'))||
-        {
+  const score =JSON.parse(localStorage.getItem('score'))||
+  {
+    wins:0,
+    losses: 0,
+    ties: 0
+  };
 
-        wins: 0,
-        losses: 0,
-        ties:0
-        };
-   
-      updateScore();
-   
-    // if(!score){
-    //   score={
+  // if(!score){
+  //   score = {wins:0,
+  //   losses: 0,
+  //   ties: 0};
+  // }
 
-    //     wins: 0,
-    //     losses: 0,
-    //     ties:0
-    //   }
-    // }
+  updateScoreElement();
+  
+
+
   function playGame(pickPlayer){
     const computerMove = pickComputerMove();
       let result = '';
     if(pickPlayer === 'scissors'){
       if(computerMove === 'rock'){
-        result = 'You loose';
+        result = 'You Loose!';
       }else if (computerMove === 'paper'){
         result = 'You Win!';
       }else{
         result = 'Tie';
       }
 
-  
+      // alert(`You picked ${pickPlayer}. Computer picked ${computerMove}. ${result}`);
     }
     else if(pickPlayer === 'paper'){
       if(computerMove === 'rock'){
@@ -75,51 +77,54 @@
       }else if (computerMove === 'paper'){
         result = 'Tie';
       }else{
-        result = 'You loose';
+        result = 'You Loose!';
       }
 
-
+      // alert(`You picked paper. Computer picked ${computerMove}. ${result}`);
     }  
-    else{
+    else if(pickPlayer ==='rock'){
       if(computerMove === 'rock'){
         result = 'Tie';
       }else if (computerMove === 'paper'){
-        result = 'You loose';
+        result = 'You Loose!';
       }else{
         result = 'You Win!';
-      }}
-
-      if(result ==='You Win!'){
-        score.wins +=1;
-
-      }else if(result==='You loose'){
-        score.losses+=1;
       }
-      else if(result === 'Tie'){
-        score.ties+=1;
-      }
-    localStorage.setItem('score',JSON.stringify(score));    
+      
+    }
+    if(result === 'You Win!'){
+      score.wins +=1;
+    }
+    else if( result === 'You Loose!'){
+      score.losses+=1;
+    }
+    else if(result === 'Tie'){
+      score.ties+=1;
+    }
+
+    localStorage.setItem('score', JSON.stringify(score));
+
+    updateScoreElement();
+
+    document.querySelector('.js-result').innerHTML = `${result}`;
+
+    document.querySelector('.js-move').innerHTML
+     =`You ${pickPlayer} - Computer ${computerMove}`;
 
     
-    updateScore();
-    document.querySelector('.js-result')
-    .innerHTML = result;
-
-    document.querySelector('.js-move')
-    .innerHTML = `player move ${pickPlayer} - ${computerMove} computer move`;
-
-
-    alert(`You picked ${pickPlayer}. Computer picked ${computerMove}. ${result}
-Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
   }
 
+  function updateResult(){
+  document.querySelector('.js-result').innerHTML = `${result}`;
 
-  function updateScore(){
+  }
+
+  function updateScoreElement(){
     document.querySelector('.js-score')
-    .innerHTML=  `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+    .innerHTML=`Wins: ${score.wins} , Losses: ${score.losses}, Ties: ${score.ties}`; 
+
   }
-
-
+  
   function pickComputerMove(){
     
     const randomNumber = Math.random();

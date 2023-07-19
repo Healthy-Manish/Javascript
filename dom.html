@@ -4,26 +4,38 @@
     <title>DOM</title>
     <style>
     
+      
     </style>
 </head>
 <body>
-   <button>Hello</button>
+    <button>Hello</button>
     <button class="js-button">second button</button>
 <script>
+    /*
     console.log(document.title);
-    document.title = 'Changed';
+    document.title='changed';
+    console.log(document.title);
+    
+    console.log(document.body);
+    console.log(typeof document.body);
 
-   console.log( document.body);
-   console.log(typeof document.body);
-   
-//    console.log(document.body.innerHTML);
+    console.log(document.body.innerHTML);
+    document.body.innerHTML = '<button>Good Job!</button>';
+    
+*/
 
-   console.log(document.querySelector('button'));
-   document.querySelector('button').innerHTML = 'changed';//here we changed the html in button
-   document.querySelector('.js-button').innerHTML = 'second change';
-    // document.body.innerHTML='hello';
-    // document.title = 'Good Job!';
-</script>
-</body>
-</html>
+    /*
+    document.body.innerHTML = 'Hello';
+    document.title = 'Good Job!';
+*/
+    //document.queryselector()
+    console.log(document.querySelector('button').innerHTML);
+    
+    console.log(document.querySelector('button').innerHTML = 'changed');
+
+    const buttonElement = document.querySelector('.js-button');
+    console.log(buttonElement);
+ </script>
+ </body>
+ </html>
 

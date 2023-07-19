@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display</title>
+</head>
+<body>
+    <input type="text" name="" id="" placeholder="enter your name"
+    class="input-name" onkeydown="
+        if(event.key === 'Enter'){
+            returningValue();
+        } 
+    "   onkeyup="onkeyUp();">
+    <button onclick="returningValue();">Submit</button>
+    <p class="keyUp"></p>
+    <p class="valueGiven"></p>
+    <script>
+        function returningValue(){
+            const name =document.querySelector('.input-name');
+             let finalName = name.value;
+            document.querySelector('.valueGiven').innerHTML = `Good Job! ${finalName}`;
+        }
+        function onkeyUp(){
+            const name =document.querySelector('.input-name');
+             let finalName = name.value;
+             document.querySelector('.keyUp').innerHTML = ` ${finalName}`;
+
+        }
+    </script>
+</body>
+</html>
